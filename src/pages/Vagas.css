@@ -1,0 +1,140 @@
+.vagas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.vagas-header {
+  margin-bottom: 2rem;
+}
+
+.vagas-header h1 {
+  color: #333;
+  font-size: 2rem;
+}
+
+.vagas-header p {
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Área dos Filtros */
+.filtros-section {
+  display: flex;
+  gap: 1.5rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.filtro-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.filtro-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.filtro-group select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.filtro-group select:focus {
+  border-color: #ED1C24;
+}
+
+/* Grid de Vagas */
+.vagas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.vaga-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-left: 4px solid #ED1C24;
+  display: flex;
+  flex-direction: column;
+}
+
+.vaga-card h3 {
+  color: #333;
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.vaga-empresa {
+  color: #666;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.vaga-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.tag.curso {
+  background-color: #fce8e9;
+  color: #ED1C24;
+}
+
+.tag.local {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.vaga-bolsa {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.candidatar-btn {
+  margin-top: auto;
+  background-color: transparent;
+  color: #ED1C24;
+  border: 1px solid #ED1C24;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.candidatar-btn:hover {
+  background-color: #ED1C24;
+  color: #ffffff;
+}
+
+.vagas-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  background: white;
+  border-radius: 8px;
+}
