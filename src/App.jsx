@@ -5,25 +5,32 @@ import { Vagas } from './pages/Vagas';
 import { Admin } from './pages/Admin';
 import { Dicas } from './pages/Dicas';
 
+const handleLogout = () => {
+  setUsuario(null);
+};
+
 const vagasIniciais = [
-  { id: 1, titulo: "Estágio em Desenvolvimento Front-end", empresa: "Tech Solutions", curso: "Ciência da Computação", local: "Remoto", bolsa: "R$ 1.500,00" },
-  { id: 2, titulo: "Estágio em Sistemas Embarcados", empresa: "Indústria Inova", curso: "Engenharia da Computação", local: "Bauru - SP", bolsa: "R$ 1.800,00" },
-  { id: 3, titulo: "Estagiário de UI/UX", empresa: "Agência Criativa", curso: "Design", local: "Bauru - SP", bolsa: "R$ 1.200,00" },
+  { id: 1, titulo: "Estágio em Desenvolvimento Front-end", empresa: "Tech Solutions", curso: "Ciência da Computação", local: "Remoto", bolsa: "R$ 1.500,00", descricao: "Atuar no desenvolvimento de interfaces com React e prototipagem.", link: "https://forms.gle/exemplo1" },
+  { id: 2, titulo: "Estágio em Sistemas Embarcados", empresa: "Indústria Inova", curso: "Engenharia da Computação", local: "Bauru - SP", bolsa: "R$ 1.800,00", descricao: "Programação de microcontroladores em C/C++.", link: "https://vagas.inova.com" },
 ];
 
 function App() {
-  
   const [vagas, setVagas] = useState(vagasIniciais);
+  const [usuario, setUsuario] = useState(null); // Controla quem está logado: { tipo: 'aluno' | 'admin' }
 
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        {/* Passamos as vagas para a tela de visualização */}
-        <Route path="/vagas" element={<Vagas vagas={vagas} />} />
-        {/* Passamos as vagas E a função de adicionar para o Admin */}
-        <Route path="/admin" element={<Admin vagas={vagas} setVagas={setVagas} />} />
-        <Route path="/dicas" element={<Dicas />} />
+        <Route path="/login" element={<Login setUsuario={setUsuario} />} />
+        
+        {/* Protegendo as rotas: Só acessa se estiver logado */}
+        <Route path="/vagas" element={usuario ? <Vagas vagas={vagas} usuario={usuario} onLogout={handleLogout} /> : <Navigate to="/login" />} />
+
+        <Route path="/dicas" element={usuario ? <Dicas usuario={usuario} /> : <Navigate to="/login" />} />
+        
+        {/* Rota do Admin: Só acessa se o tipo for 'admin' */}
+        <Route path="/admin" element={usuario?.tipo === 'admin' ? <Admin vagas={vagas} setVagas={setVagas} usuario={usuario} /> : <Navigate to="/vagas" />} />
+        
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>

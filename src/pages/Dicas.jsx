@@ -5,7 +5,7 @@ import EmojiPicker from 'emoji-picker-react';
 import { CarrosselDicas } from '../components/Carrossel';
 import { Search, GraduationCap, Mic2, BookOpen, UserX, Target, HelpCircle, UserCheck, Heart } from 'lucide-react';
 
-export function Dicas() {
+export function Dicas({ usuario, onLogout }) {
   const dicasIniciais = [
     { 
       id: 1, 
@@ -64,21 +64,24 @@ export function Dicas() {
   ];
 
   return (
-    <div><Header />
-    <div className="painelDicas min-h-screen bg-[#0a0a0a] text-white">
-
-      <main className="dicas-container max-w-6xl mx-auto px-6 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Dicas para Conseguir um Estágio
-          </h1>
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Confira nossas dicas para aumentar suas chances de conseguir a vaga dos seus sonhos.
-          </p>
-        </div>
-            <CarrosselDicas dicas={dicasIniciais} />
-      </main>
-    </div>
+    <div>
+      
+      <Header usuario={usuario} onLogout={onLogout} />
+      
+      <div className="painelDicas min-h-screen bg-[#0a0a0a] text-white">
+        <main className="dicas-container max-w-6xl mx-auto px-6 py-12">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+              Dicas para Conseguir um Estágio
+            </h1>
+            <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+              Confira nossas dicas para aumentar suas chances de conseguir a vaga dos seus sonhos.
+            </p>
+          </div>
+          
+          <CarrosselDicas dicas={dicasIniciais} />
+        </main>
+      </div>
     </div>
   );
 }

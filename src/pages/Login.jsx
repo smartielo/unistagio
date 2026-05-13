@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react'; // Adicionado o { useState }
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import logo from '../assets/logo_unisagrado.png'; 
 
-export function Login() {
-    const navigate = useNavigate(); 
+export function Login({ setUsuario }) {
+  const navigate = useNavigate();
+  const [tipoAcesso, setTipoAcesso] = useState('aluno');
 
-  // 3. Crie a função que simula o login
   const handleLogin = (e) => {
-    e.preventDefault(); // Evita que a página recarregue
-    navigate('/vagas'); // Leva o usuário para a tela de vagas
+    e.preventDefault();
+    setUsuario({ tipo: tipoAcesso });
+    
+    if (tipoAcesso === 'admin') navigate('/admin');
+    else navigate('/vagas');
   };
 
   return (
     <div className="login-container">
-      {/* Lado Esquerdo - Branding */}
       <div className="login-banner">
         <img src={logo} alt="UNISAGRADO" className="login-logo" />
         <h1>Unistágio</h1>
         <p>Conectando talentos acadêmicos ao mercado de trabalho.</p>
       </div>
 
-      {/* Lado Direito - Formulário */}
       <div className="login-form-section">
         <div className="login-box">
           <h2>Acesse sua conta</h2>
@@ -29,12 +30,25 @@ export function Login() {
 
           <form onSubmit={handleLogin}>
             <div className="input-group">
-              <label htmlFor="cpf">CPF (sem pontos ou traços)</label>
+              <label>Tipo de Acesso</label>
+              <select 
+                value={tipoAcesso} 
+                onChange={(e) => setTipoAcesso(e.target.value)} 
+                style={{ padding: '0.8rem', borderRadius: '6px', border: '1px solid #ccc', marginBottom: '1rem', width: '100%' }}
+              >
+                <option value="aluno">Portal do Aluno</option>
+                <option value="admin">Portal do RH (Administrador)</option>
+              </select>
+            </div>
+
+            {/* Campo de CPF adicionado novamente */}
+            <div className="input-group">
+              <label htmlFor="cpf">CPF</label>
               <input 
                 type="text" 
                 id="cpf" 
                 placeholder="Ex: 12345678900" 
-                maxLength="11"
+                required
               />
             </div>
 
@@ -44,6 +58,7 @@ export function Login() {
                 type="password" 
                 id="password" 
                 placeholder="Mesma senha do Portal" 
+                required
               />
             </div>
 

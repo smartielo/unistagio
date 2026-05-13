@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
-import logo from '../assets/logo_unisagrado.png'; 
+import logo from '../assets/logo_unisagrado.png';
 
-export function Header() {
+export function Header({ usuario, onLogout }) {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Redireciona o usuário de volta para a tela de login
+  const executarSair = () => {
+    if(onLogout) onLogout(); // Limpa o usuário no App.jsx
     navigate('/login');
   };
 
@@ -19,19 +19,19 @@ export function Header() {
       </div>
       
       <nav className="header-nav">
-        {/* O Link substitui a tag <a> clássica para não recarregar a página */}
         <Link to="/vagas" className="nav-link">Vagas e Estágios</Link>
-        <Link to="/admin" className="nav-link">Painel Admin</Link>
         <Link to="/dicas" className="nav-link">Dicas de Carreira</Link>
+        {/* Só mostra o menu Admin se o usuário for do tipo 'admin' */}
+        {usuario?.tipo === 'admin' && (
+          <Link to="/admin" className="nav-link" style={{ color: '#ED1C24' }}>Painel Admin</Link>
+        )}
       </nav>
 
       <div className="header-actions">
-        <div className="user-profile">
-          <span className="user-name">Olá, Estudante</span>
-        </div>
-        <button onClick={handleLogout} className="logout-button">
-          Sair
-        </button>
+        <span className="user-name">
+          {usuario?.tipo === 'admin' ? 'Olá, RH' : 'Olá, Estudante'}
+        </span>
+        <button onClick={executarSair} className="logout-button">Sair</button>
       </div>
     </header>
   );
