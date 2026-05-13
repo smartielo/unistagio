@@ -1,0 +1,81 @@
+/* Container principal do carrossel */
+.carrossel-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 40px; /* Espaço nas laterais para os botões não ficarem em cima dos cards */
+}
+
+/* A janela que esconde os cards que não estão ativos */
+.embla__viewport {
+  overflow: hidden; 
+  width: 100%;
+}
+
+/* O container que coloca os cards lado a lado */
+.embla__container {
+  display: flex;
+}
+
+/* A configuração de CADA CARD (Aqui definimos que aparecem 3 por vez) */
+.embla__slide {
+  flex: 0 0 33.333%; /* 33.333% significa que cabem 3 na tela de 100% */
+  min-width: 0;
+  padding-left: 20px; /* Espaçamento entre os cards */
+}
+
+/* Estilo do bloco (Card) */
+.dica-card {
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 24px;
+  height: 340px; /* Altura fixa para todos ficarem do mesmo tamanho */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.dica-icon {
+  color: #d32f2f; /* Cor vermelha para combinar com o logo UNIstágio */
+  margin-bottom: 16px;
+}
+
+.dica-titulo {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.dica-descricao {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  overflow-y: auto; /* Se o texto for muito grande, cria uma barrinha de rolagem só no texto */
+}
+
+/* Botões de avançar e voltar */
+.embla__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.embla__button:hover {
+  background-color: #f0f0f0;
+}
+
+.embla__button--prev { left: -10px; }
+.embla__button--next { right: -10px; }
