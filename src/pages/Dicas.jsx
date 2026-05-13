@@ -41,7 +41,7 @@ export function Dicas() {
       id: 6, 
       icon: <Target />, 
       titulo: "Dica 6: Use o método STAR para dar exemplos", 
-      descricao: "Ao responder sobre situações desafiadoras, estruture sua fala em: Situação, Tarefa, Ação e Resultado. Use exemplos de provas complexas, prazos apertados ou conflitos em trabalhos da faculdade para mostrar como você resolve problemas na prática." 
+      descricao: "Ao responder sobre situações desafiadoras, estruture sua fala em: Situação, Tarefa, Ação e Resultado. Use exemplos de provas, prazos apertados ou conflitos em trabalhos da faculdade para mostrar como você resolve problemas na prática." 
     },
     { 
       id: 7, 
@@ -52,7 +52,7 @@ export function Dicas() {
     { 
       id: 8, 
       icon: <UserCheck />, 
-      titulo: "Dica 8: Cuide da sua comunicação e postura", 
+      titulo: "Dica 8: Cuide da sua comunicação e postura",     
       descricao: "Seja online (cuidado com fundo e ruídos) ou presencial, a primeira impressão conta. Vista-se de acordo com o perfil da empresa, mantenha contato visual, evite gírias em excesso e demonstre energia e entusiasmo ao falar." 
     },
     { 

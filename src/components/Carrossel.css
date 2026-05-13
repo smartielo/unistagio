@@ -1,7 +1,7 @@
 /* Container principal do carrossel */
 .carrossel-wrapper {
   position: relative;
-  max-width: 1000px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 20px 40px; /* Espaço nas laterais para os botões não ficarem em cima dos cards */
 }
