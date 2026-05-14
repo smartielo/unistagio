@@ -57,7 +57,7 @@ export function Admin({ vagas, setVagas, usuario }) {
             </div>
             
             <div className="form-row">
-              <div className="input-group"><label>Curso Alvo</label><select value={novaVaga.curso} onChange={e => setNovaVaga({...novaVaga, curso: e.target.value})}><option>Ciência da Computação</option><option>Engenharia da Computação</option><option>Design</option></select></div>
+              <div className="input-group"><label>Curso Alvo</label><select value={novaVaga.curso} onChange={e => setNovaVaga({...novaVaga, curso: e.target.value})}><option>Ciência da Computação</option><option>Design</option><option>Engenharia Civil</option><option>Engenharia da Computação</option><option>Nutrição</option><option>Odontologia</option><option>Pedagogia</option><option>Psicologia</option></select></div>
               <div className="input-group"><label>Localidade</label><select value={novaVaga.local} onChange={e => setNovaVaga({...novaVaga, local: e.target.value})}><option>Bauru - SP</option><option>Remoto</option><option>Híbrido</option></select></div>
             </div>
 
