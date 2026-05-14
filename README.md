@@ -1,16 +1,35 @@
-# React + Vite
+# 🎓 Portal Talentos UNISAGRADO (UniStágio)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Solução Tecnológica para Divulgação de Estágios e Inserção Profissional.** Este projeto é um Minimum Viable Product (MVP) desenvolvido para o **VII Hack@day UNISAGRADO (2026)**.
 
-Currently, two official plugins are available:
+## 💡 O Desafio
+Estudantes universitários muitas vezes encontram dificuldades para centralizar a busca por oportunidades de estágio que sejam perfeitamente alinhadas aos seus cursos e localidades. Paralelamente, o RH de empresas parceiras precisa de um canal direto e qualificado para divulgar vagas diretamente na instituição. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Nossa Solução
+O **Portal Talentos UNISAGRADO** (UniStágio) é uma plataforma web responsiva, interativa e de fácil uso que conecta o ambiente acadêmico ao mercado de trabalho. O portal atua no nicho de Orientação de Carreira, entregando:
 
-## React Compiler
+1. **Acesso Segmentado:** Visão de Estudante (busca por oportunidades e dicas) e Visão do RH (painel administrativo de postagem de vagas).
+2. **Filtros Dinâmicos:** Motor de busca por palavra-chave, curso alvo e modalidade de trabalho.
+3. **Módulo de Carreira:** Uma sessão dedicada com dicas vitais para entrevistas e desenvolvimento de soft skills, ajudando o aluno em seus primeiros passos no mercado.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Stack Tecnológica
+- **Frontend:** React.js, Vite
+- **Estilização:** CSS3 Funcional (Layouts dinâmicos em Grid/Flexbox) + Tailwind CSS
+- **Roteamento:** React Router DOM
+- **Ícones e Assets:** Lucide React & Embla Carousel
 
-## Expanding the ESLint configuration
+## ⚙️ Como executar o projeto (Ambiente de Desenvolvimento)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Certifique-se de ter o **Node.js** instalado na sua máquina.
+2. Clone este repositório.
+3. Abra o terminal na raiz do projeto e instale as dependências:
+   ```bash
+   npm install
+    ```
+4. Inicie o servidor local com o Vite:
+    ```bash
+   npm run dev
+    ```
+5. Acesse a aplicação através da rota local gerada (ex: http://localhost:5173).
+##
+Projeto desenvolvido para o VII Hack@Day - Maio de 2026.
