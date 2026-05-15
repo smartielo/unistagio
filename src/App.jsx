@@ -4,6 +4,7 @@ import { Login } from './pages/Login';
 import { Vagas } from './pages/Vagas';
 import { Admin } from './pages/Admin';
 import { Dicas } from './pages/Dicas';
+import { PainelEstudante } from '../src/pages/PainelEstudante';
 
 const vagasIniciais = [
   { id: 1, titulo: "Estágio em Desenvolvimento Front-end", empresa: "Tech Solutions", curso: "Ciência da Computação", local: "Remoto", bolsa: "R$ 1.500,00" },
@@ -24,6 +25,7 @@ function App() {
         {/* Passamos as vagas E a função de adicionar para o Admin */}
         <Route path="/admin" element={<Admin vagas={vagas} setVagas={setVagas} />} />
         <Route path="/dicas" element={<Dicas />} />
+        <Route path="/estudante" element={<PainelEstudante />} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>

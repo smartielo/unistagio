@@ -14,8 +14,10 @@ export function Header() {
   return (
     <header className="main-header">
       <div className="header-brand">
+        <Link to="/vagas" className="brand-link">
         <img src={logo} alt="Logo UNISAGRADO" className="header-logo" />
         <span className="header-title">Unistágio</span>
+        </Link>
       </div>
       
       <nav className="header-nav">
