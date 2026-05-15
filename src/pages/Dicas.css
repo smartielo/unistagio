@@ -1,40 +1,332 @@
-.painelDicas{
+/* ========================================================
+   ESTRUTURA BASE E BACKGROUND
+   ======================================================== */
+.bodyy {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #f7f7f7);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.bodyy::before {
+    content: "";
+    position: fixed;
+    top: -120px; left: -120px;
+    width: 350px; height: 350px;
+    background: rgba(200, 0, 0, 0.08);
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: -1;
+}
+
+.bodyy::after {
+    content: "";
+    position: fixed;
+    bottom: -150px; right: -150px;
+    width: 400px; height: 400px;
+    background: rgba(200, 0, 0, 0.06);
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: -1;
+}
+
+/* ========================================================
+   BANNERS E CONTAINERS GERAIS
+   ======================================================== */
+.bannerDicas {
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-container {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.banner-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    margin: 0;
+}
+
+.painelDicas {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    align-self: center;
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 .dicas-container {
     width: 1000px;
-    display: flex;
-    flex-direction: column;
+    max-width: 95%;
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 50px 40px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
-.dicas-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+.text-center { text-align: center; }
+
+/* ========================================================
+   TÍTULO PRINCIPAL (GUIA)
+   ======================================================== */
+.header-guia {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header-guia h1 {
+    font-size: 42px;
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.divider-red-main {
+    width: 80px;
+    height: 5px;
+    background: #c40000;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+}
+
+.header-guia p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* ========================================================
+   BLOCOS DE DICAS (ARTIGOS)
+   ======================================================== */
+.conteudosDicas {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     padding-top: 20px;
 }
 
-.dica-card {
-    background-color: #fff;
+.blocoDica {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border-left: 6px solid #c40000;
+    border-right: 6px solid #c40000;
+}
+
+/* ALINHAMENTO PERFEITO DO TÍTULO E DA LINHA */
+.cabecalho-bloco {
+    margin-bottom: 25px;
+}
+
+.titulo-alinhado {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-red {
+    color: #c40000;
+}
+
+.titulo-alinhado h2 {
+    font-size: 36px;
+    margin: 0;
+    font-weight: 800;
+    color: #111;
+}
+
+.linha-vermelha-inferior {
+    width: 100%;
+    height: 4px;
+    background: #c40000;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.texto-intro {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.subtitulo-destaque {
+    color: #c40000;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+/* ========================================================
+   TAGS E LISTAS NORMAIS
+   ======================================================== */
+.tag-destaque {
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.tag-red {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 4px;
+}
+
+/* Lista limpa, sem as bolinhas feias do HTML */
+.lista-sem-pontos {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.lista-sem-pontos li {
+    background-color: #fafafa;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;   
-    user-select: none; 
-}   
+    border-left: 3px solid #ccc;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.6;
+}
 
-.text-center{
+/* ========================================================
+   CAIXAS MODERNAS DO CURRÍCULO (VERDE E VERMELHA)
+   ======================================================== */
+.grid-moderno {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.caixa-verde {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.caixa-vermelha {
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.titulo-caixa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.titulo-caixa.verde { color: #16a34a; }
+.titulo-caixa.vermelha { color: #dc2626; }
+
+.titulo-caixa h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+/* Listas customizadas com mini-ícones SVG via CSS */
+.lista-check, .lista-x {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.lista-check li, .lista-x li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* Vzinho verde em cada item */
+.lista-check li::before {
+    content: url('data:image/svg+xml;utf8,<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%2316a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+/* X vermelho em cada item */
+.lista-x li::before {
+    content: url('data:image/svg+xml;utf8,<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>');
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.caixa-verde li strong, .caixa-vermelha li strong {
+    color: #111;
+}
+
+/* ========================================================
+   RESUMO E RODAPÉ
+   ======================================================== */
+.resumo-final {
+    width: 1000px;
+    max-width: 95%;
+    margin: 60px auto 0;
     text-align: center;
+}
+
+.resumo-final h2 {
+    font-size: 34px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 30px;
+}
+
+/* ========================================================
+   RODAPÉ
+   ======================================================== */
+footer {
+    width: 100%;
+    margin-top: 80px;
+    /* Removido o display: flex para a imagem poder ocupar tudo livremente */
+}
+
+.footerDicas {
+    width: 100%;
+    height: 100%;
+    max-height: 280px; /* Limita a altura para não ficar um banner gigante */
+    object-fit: cover; /* Faz a imagem preencher a largura toda perfeitamente */
+    object-position: center; /* Garante que os textos e troféus da imagem fiquem sempre no meio */
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .grid-moderno { grid-template-columns: 1fr; }
+    .titulo-alinhado h2 { font-size: 26px; }
+    .dicas-container { padding: 30px 20px; }
 }
