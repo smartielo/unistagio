@@ -32,6 +32,9 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Nova Rota: Quando acessar a raiz do site, vai direto para o login */}
+        <Route path="/" element={<Navigate to="/login" />} />
+
         {/* Rota de Login */}
         <Route path="/login" element={<Login setUsuario={setUsuario} />} />
         
