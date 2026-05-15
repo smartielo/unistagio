@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+// Importação das Páginas
 import { Login } from './pages/Login';
 import { Vagas } from './pages/Vagas';
 import { Admin } from './pages/Admin';
 import { Dicas } from './pages/Dicas';
-import { PainelEstudante } from '../src/pages/PainelEstudante';
+import { PainelEstudante } from './pages/PainelEstudante'; // Importando a nova página do aluno!
+import { NotFound } from './pages/NotFound';
 
+// Vagas Iniciais (Merge: Lista atualizada do seu amigo com os cursos do UNISAGRADO)
 const vagasIniciais = [
   { id: 1, titulo: "Estágio em Desenvolvimento Front-end", empresa: "Tech Solutions", curso: "Ciência da Computação", local: "Remoto", bolsa: "R$ 1.500,00", descricao: "Atuar no desenvolvimento de interfaces com React e prototipagem.", link: "https://forms.gle/exemplo1" },
   { id: 2, titulo: "Estágio em Sistemas Embarcados", empresa: "Indústria Inova", curso: "Engenharia da Computação", local: "Bauru - SP", bolsa: "R$ 1.800,00", descricao: "Programação de microcontroladores em C/C++.", link: "https://vagas.inova.com" },
@@ -18,9 +22,9 @@ const vagasIniciais = [
 
 function App() {
   const [vagas, setVagas] = useState(vagasIniciais);
-  const [usuario, setUsuario] = useState(null); // Controla quem está logado: { tipo: 'aluno' | 'admin' }
+  const [usuario, setUsuario] = useState(null); // Controla quem está logado: { tipo: 'estudante' | 'admin' }
 
-  // A função de logout precisa ficar dentro do App para poder usar o setUsuario
+  // Merge: A função de logout precisa ficar dentro do App para poder usar o setUsuario (Corrigido pelo seu amigo)
   const handleLogout = () => {
     setUsuario(null);
   };
@@ -28,13 +32,26 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        {/* Passamos as vagas para a tela de visualização */}
-        <Route path="/vagas" element={<Vagas vagas={vagas} />} />
-        {/* Passamos as vagas E a função de adicionar para o Admin */}
-        <Route path="/admin" element={<Admin vagas={vagas} setVagas={setVagas} />} />
-        <Route path="/dicas" element={<Dicas />} />
-        <Route path="*" element={<Navigate to="/login" />} />
+        {/* Rota de Login */}
+        <Route path="/login" element={<Login setUsuario={setUsuario} />} />
+        
+        {/* Rota do Dashboard: Só acessa se estiver logado */}
+        <Route path="/dashboard" element={usuario?.tipo === 'estudante' ? <PainelEstudante usuario={usuario} onLogout={handleLogout} /> : <Navigate to="/login" />} />
+        
+        {/* Rota de Vagas: Todos logados podem acessar */}
+        <Route path="/vagas" element={usuario ? <Vagas vagas={vagas} usuario={usuario} onLogout={handleLogout} /> : <Navigate to="/login" />} />
+
+        {/* Rota de Dicas: Mantida oculta no Header, mas funcional se acessada diretamente */}
+        <Route path="/dicas" element={usuario ? <Dicas usuario={usuario} onLogout={handleLogout} /> : <Navigate to="/login" />} />
+        
+        {/* Rota do Admin (Painel RH): Só acessa se o tipo for 'admin' */}
+        <Route path="/admin" element={usuario?.tipo === 'admin' ? <Admin vagas={vagas} setVagas={setVagas} usuario={usuario} onLogout={handleLogout} /> : <Navigate to="/dashboard" />} />
+
+        {/* Rota do Estudante: Só acessa se o tipo for 'aluno' */}
+        <Route path="/estudante" element={usuario?.tipo === 'aluno' ? <PainelEstudante usuario={usuario} onLogout={handleLogout} /> : <Navigate to="/login" />} />
+
+        {/* Rota 404 (Qualquer URL que não exista cai aqui) */}
+      <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

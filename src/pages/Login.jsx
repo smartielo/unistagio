@@ -2,8 +2,14 @@ import React, { useState } from 'react'; // Adicionado o { useState }
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import logo from '../assets/logo_unisagrado.png'; 
+import { useEffect } from 'react';
 
 export function Login({ setUsuario }) {
+
+  useEffect(() => {
+          document.title = 'Login | UniStágio';
+        }, []);
+
   const navigate = useNavigate();
   const [tipoAcesso, setTipoAcesso] = useState('aluno');
 
@@ -12,7 +18,7 @@ export function Login({ setUsuario }) {
     setUsuario({ tipo: tipoAcesso });
     
     if (tipoAcesso === 'admin') navigate('/admin');
-    else navigate('/vagas');
+    else navigate('/estudante');
   };
 
   return (

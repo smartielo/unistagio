@@ -31,7 +31,7 @@ export function Header({ usuario, onLogout }) {
 
       <div className="header-actions">
         <span className="user-name">
-          {usuario?.tipo === 'admin' ? 'Olá, RH' : 'Olá, Estudante'}
+          Olá, <strong>{usuario?.nome || (usuario?.tipo === 'admin' ? 'Recrutador' : 'Estudante')}</strong>
         </span>
         <button onClick={executarSair} className="logout-button">Sair</button>
       </div>

@@ -2,8 +2,14 @@ import React from 'react';
 import { Header } from '../components/Header';
 import { Link } from 'react-router-dom';
 import './PainelEstudante.css';
+import { useEffect } from 'react';
 
 export function PainelEstudante({ usuario, onLogout }) {
+
+  useEffect(() => {
+        document.title = 'Painel do Estudante | UniStágio';
+      }, []);
+
   return (
     <div className="dashboard-page">
       <Header usuario={usuario} onLogout={onLogout} />

@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import './Vagas.css';
+import { useEffect } from 'react';
 
 export function Vagas({ vagas, usuario, onLogout }) {
+
+  useEffect(() => {
+          document.title = 'Vagas | UniStágio';
+        }, []);
+
   const [buscaTexto, setBuscaTexto] = useState(''); // Novo estado para a barra de pesquisa
   const [filtroCurso, setFiltroCurso] = useState('');
   const [filtroLocal, setFiltroLocal] = useState('');

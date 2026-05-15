@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import {useEffect} from 'react';
 import { Header } from '../components/Header';
 import './Admin.css';
 
 export function Admin({ vagas, setVagas, usuario }) {
+
+  useEffect(() => {
+      document.title = 'Painel Admin | UniStágio';
+    }, []);
+
   const [novaVaga, setNovaVaga] = useState({
     id: null, titulo: '', empresa: '', curso: 'Ciência da Computação', local: 'Bauru - SP', bolsa: '', descricao: '', link: ''
   });
