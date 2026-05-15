@@ -11,6 +11,8 @@ export function Header({ usuario, onLogout }) {
     navigate('/login');
   };
 
+  const dashboardPath = usuario?.tipo === 'admin' ? '/admin' : '/estudante';
+
   return (
     <header className="main-header">
       <div className="header-brand">
@@ -30,9 +32,14 @@ export function Header({ usuario, onLogout }) {
       </nav>
 
       <div className="header-actions">
-        <span className="user-name">
+        <Link 
+          to={dashboardPath} 
+          className="user-name"
+          style={{ textDecoration: 'none', color: '#333', cursor: 'pointer' }}
+          title="Ir para o meu painel"
+        >
           Olá, <strong>{usuario?.nome || (usuario?.tipo === 'admin' ? 'Recrutador' : 'Estudante')}</strong>
-        </span>
+        </Link>
         <button onClick={executarSair} className="logout-button">Sair</button>
       </div>
     </header>
