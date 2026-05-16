@@ -1,5 +1,12 @@
 # 🎓 Portal Talentos UNISAGRADO (UniStágio)
 
+<div align="center">
+  <h3>🏆 3º Lugar Geral - VII Hack@day UNISAGRADO (2026) 🥉</h3>
+  <p><i>Premiado pela inovação, usabilidade e alto potencial de impacto na empregabilidade dos alunos.</i></p>
+</div>
+
+---
+
 **Solução Tecnológica para Divulgação de Estágios e Inserção Profissional.** Este projeto é um Minimum Viable Product (MVP) desenvolvido para o **VII Hack@day UNISAGRADO (2026)**.
 
 ## 💡 O Desafio
